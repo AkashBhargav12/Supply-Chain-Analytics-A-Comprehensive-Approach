@@ -84,6 +84,61 @@ Based on the requirements, we can create dashboards that contain the following c
 8. Interactive Filters and Drill downs
 
 
+## DashBoard Mockups
+
+What should the Dashboard Look like?
+
+Some of the data visulas that may be appropriate in answering our questions include:
+
+1. Table
+2. Bar Chart
+3. Line Chart
+4. Scatter Plot
+5. Text Box
+6. KPI Card
+7. Slicers
+
+### Probability Distribution
+
+### Hypothesis Testing
+
+### Regression Modelling
+
+### Decision Tree
+
+## Tools Used
+
+| **Tool** | **Purpose** |
+| --- | --- |
+| Excel | Exploring and analyzing the data |
+| MySQL Server | Cleaning and testing the data |
+| Power BI | Visualizing the data via interactive dashboards |
+| GitHub | Hosting the project documentation |
+| Mokkup AI | Designing the mockup of the dashboard |
 
 
+# Development
 
+## Pseudocode
+
+## Pseudocode
+
+- How can we approach the problem to create a solution from start to finish?
+
+  1. Get the data from a reliable data source
+  2. Explore the data in Excel to check for any errors that standout
+  3. Load the data into SQL Server
+  4. Clean the data with SQL
+  5. Test the data with SQL
+  6. Load the clean data into PowerBI
+  7. Generate visualisations of the data in PowerBI
+  8. Perform Analysis using Excel 
+  9. Generate the findings based on the insights
+  10. Write the documentation + commentary
+  11. Publish the insights generated
+ 
+## Data exploration notes
+
+This is the stage where we scan the data for errors, inconcsistencies, bugs, weird and corrupted characters etc.
+
+- The initial observations with this dataset are as follows:
