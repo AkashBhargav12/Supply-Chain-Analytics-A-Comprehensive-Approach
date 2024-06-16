@@ -406,7 +406,7 @@ We can now export this cleaned data into PowerBI to create visualisations.
 
 ## Results
 
-- WHat does the Dashboard look like?
+- What does the Dashboard look like?
   Below is a link to access the dashboard
 
   [PowerBI Dashboard]()
