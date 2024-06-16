@@ -160,7 +160,7 @@ Below is a table outlining the constraints on our cleaned dataset,
 | Number of Rows | 2241 |
 | Number of Columns | 18 |
 
-### Expected Schema for Clean Data
+## Expected Schema for Clean Data
 
 | **Column Name**      | **Data Type**   | **Description**                                      |
 |----------------------|-----------------|------------------------------------------------------|
@@ -185,4 +185,233 @@ Below is a table outlining the constraints on our cleaned dataset,
 | `NumStorePurchases`  | `INT`           | Number of purchases made directly in stores          |
 | `NumWebVisitsMonth`  | `INT`           | Number of visits to the company’s website in the last month |
 | `Response`           | `INT`           | Whether the customer responded to a campaign (0 or 1)|
+
+- Steps taken to clean and shape the data into the desired format
+
+   1. Convert Date Columns to Datetime Format
+  2. Check for missing values
+  3. Handle outliers
+  4. Standarise data types
+  5. Revalidate data types
+
+## Transform and test the data
+
+Before data transformation, a new database is created in the MySQL server. After the database is created, the raw data file is imported into the server using the table import wizard. After the import is complete, we can now being cleaning the data.
+
+### Convert Date Columns to DateTime format
+```sql
+ALTER TABLE customers_data MODIFY COLUMN Dt_Customer DATETIME;
+```
+
+### Check for Missing Values and Outliers
+```sql
+SELECT column_name, COUNT(*) - COUNT(column_name) AS missing_count
+FROM customer_data
+GROUP BY column_name;
+```
+This step is repeated for multiple columns to check for any missing values and outliers
+
+### Handle Outliers
+```sql
+-- Update the Education column to change '2n Cycle' to 'Diploma'
+UPDATE customers_data
+SET Education = 'Diploma'
+WHERE Education = '2n Cycle';
+
+
+-- Update the Education column to change '2n Cycle' to 'Diploma'
+UPDATE customers_data
+SET marital_status = 'Single'
+WHERE marital_status = 'YOLO' or marital_status ='Absurd' or marital_status ='Alone';
+
+-- Delete rows with negative values in the Income column
+DELETE FROM customers_data
+WHERE Income < 0;
+
+-- Update the MntWines column to change negative values to positive values
+UPDATE customers_data
+SET MntWines = ABS(MntWines)
+WHERE MntWines < 0;
+
+-- Update the MntFruits column to change negative values to positive values
+UPDATE customers_data
+SET MntFruits = ABS(MntFruits)
+WHERE MntFruits < 0;
+
+-- Update the MntMeatProducts column to change negative values to positive values
+UPDATE customers_data
+SET MntMeatProducts = ABS(MntMeatProducts)
+WHERE MntMeatProducts < 0;
+
+-- Update the MntFishProducts column to change negative values to positive values
+UPDATE customers_data
+SET MntFishProducts = ABS(MntFishProducts)
+WHERE MntFishProducts < 0;
+
+-- Update the MntSweetProducts column to change negative values to positive values
+UPDATE customers_data
+SET MntSweetProducts = ABS(MntSweetProducts)
+WHERE MntSweetProducts < 0;
+
+-- Update the MntGoldProds column to change negative values to positive values
+UPDATE customers_data
+SET MntGoldProds = ABS(MntGoldProds)
+WHERE MntGoldProds < 0;
+
+-- Update the NumDealsPurchases column to change negative values to positive values
+UPDATE customers_data
+SET NumDealsPurchases = ABS(NumDealsPurchases)
+WHERE NumDealsPurchases < 0;
+
+-- Update the NumWebPurchases column to change negative values to positive values
+UPDATE customers_data
+SET NumWebPurchases = ABS(NumWebPurchases)
+WHERE NumWebPurchases < 0;
+
+-- Update the NumCatalogPurchases column to change negative values to positive values
+UPDATE customers_data
+SET NumCatalogPurchases = ABS(NumCatalogPurchases)
+WHERE NumCatalogPurchases < 0;
+
+-- Update the NumStorePurchases column to change negative values to positive values
+UPDATE customers_data
+SET NumStorePurchases = ABS(NumStorePurchases)
+WHERE NumStorePurchases < 0;
+
+-- Update the NumWebVisitsMonth column to change negative values to positive values
+UPDATE customers_data
+SET NumWebVisitsMonth = ABS(NumWebVisitsMonth)
+WHERE NumWebVisitsMonth < 0;
+
+-- Change column name for ID column
+Alter table customers_data
+Change Column ï»¿ID ID INT;
+```
+
+### Standardise the datatypes
+```sql
+ALTER TABLE customers_data
+MODIFY COLUMN ID INT,
+MODIFY COLUMN Year_Birth INT,
+MODIFY COLUMN Education VARCHAR(50),
+MODIFY COLUMN Marital_Status VARCHAR(50),
+MODIFY COLUMN Income DECIMAL(10,2),
+MODIFY COLUMN Kidhome INT,
+MODIFY COLUMN Recency INT,
+MODIFY COLUMN Complain INT,
+MODIFY COLUMN MntWines DECIMAL(10,2),
+MODIFY COLUMN MntFruits DECIMAL(10,2),
+MODIFY COLUMN MntMeatProducts DECIMAL(10,2),
+MODIFY COLUMN MntFishProducts DECIMAL(10,2),
+MODIFY COLUMN MntSweetProducts DECIMAL(10,2),
+MODIFY COLUMN MntGoldProds DECIMAL(10,2),
+MODIFY COLUMN NumDealsPurchases INT,
+MODIFY COLUMN NumWebPurchases INT,
+MODIFY COLUMN NumCatalogPurchases INT,
+MODIFY COLUMN NumStorePurchases INT,
+MODIFY COLUMN NumWebVisitsMonth INT,
+MODIFY COLUMN Response INT;
+```
+
+### Revalidate the data types
+```sql
+DESCRIBE customers_data;
+```
+
+![Revalidated data types](Assets/Images/SQL Data types.png)
+
+Now that the data is cleaned, we can perform a series of checks to ensure data validity, consistency and correctness. Some of the tests performed on this dataset are as follows:
+
+1. Check for Null Values
+2. Check for negative values
+3. Check for consistency in categorical data
+4. Check for logical consistency
+5. Check for duplicates
+
+### Ensure no Null Values
+```sql
+SELECT COUNT(*) AS NullCount
+FROM customers_data
+WHERE ID IS NULL
+   OR Year_Birth IS NULL
+   OR Education IS NULL
+   OR Marital_Status IS NULL
+   OR Income IS NULL
+   OR Kidhome IS NULL
+   OR Dt_Customer IS NULL
+   OR Recency IS NULL
+   OR Complain IS NULL
+   OR MntWines IS NULL
+   OR MntFruits IS NULL
+   OR MntMeatProducts IS NULL
+   OR MntFishProducts IS NULL
+   OR MntSweetProducts IS NULL
+   OR MntGoldProds IS NULL
+   OR NumDealsPurchases IS NULL
+   OR NumWebPurchases IS NULL
+   OR NumCatalogPurchases IS NULL
+   OR NumStorePurchases IS NULL
+   OR NumWebVisitsMonth IS NULL
+   OR Response IS NULL;
+```
+
+### Check for Negative Values
+```sql
+SELECT COUNT(*) AS NegativeCount
+FROM customers_data
+WHERE Income < 0
+   OR MntWines < 0
+   OR MntFruits < 0
+   OR MntMeatProducts < 0
+   OR MntFishProducts < 0
+   OR MntSweetProducts < 0
+   OR MntGoldProds < 0
+   OR NumDealsPurchases < 0
+   OR NumWebPurchases < 0
+   OR NumCatalogPurchases < 0
+   OR NumStorePurchases < 0
+   OR NumWebVisitsMonth < 0;
+```
+
+### Check for Consistency in Categorical Data
+```sql
+-- Check distinct values in Education column
+SELECT DISTINCT Education
+FROM customers_data;
+
+-- Check distinct values in Marital_Status column
+SELECT DISTINCT Marital_Status
+FROM customers_data;
+```
+
+### Check for Logical Consistency
+```sql
+SELECT ID, (YEAR(CURDATE()) - Year_Birth) AS Age
+FROM customers_data
+WHERE (YEAR(CURDATE()) - Year_Birth) < 0
+   OR (YEAR(CURDATE()) - Year_Birth) > 100;
+```
+
+### Check for Duplicates
+```sql
+SELECT ID, COUNT(*) AS DuplicateCount
+FROM customers_data
+GROUP BY ID
+HAVING COUNT(*) > 1;
+```
+
+We can now export this cleaned data into PowerBI to create visualisations.
+
+# Visualisation
+
+## Results
+
+- WHat does the Dashboard look like?
+  Below is a link to access the dashboard
+
+  [PowerBI Dashboard]()
+
+  
+
+
 
