@@ -76,13 +76,12 @@ The data for this analysis has been obtained from a confidential source and mimi
 
 Based on the requirements, we can create dashboards that contain the following components, enabling the stakeholders to make informed decisions about their supply chain:
 1. Overview Section
-2. Customer Segmentation
-3. Predictive Modeling
-4. Inventory Optimisation
-5. Hypothesis Testing
-6. Sales Trends
-7. Customer Retention
-8. Interactive Filters and Drill downs
+2. Customer Demographics Overview
+3. Sales Performance Dashboard
+4. Product Purchase Analysis
+5. Customer Engagement Dashboard
+6. Marketing Campaign Response
+7. Interactive Filters and Drill downs
 
 
 ## DashBoard Mockups
@@ -188,7 +187,7 @@ Below is a table outlining the constraints on our cleaned dataset,
 
 - Steps taken to clean and shape the data into the desired format
 
-   1. Convert Date Columns to Datetime Format
+  1. Convert Date Columns to Datetime Format
   2. Check for missing values
   3. Handle outliers
   4. Standarise data types
