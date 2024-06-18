@@ -408,7 +408,7 @@ We can now export this cleaned data into PowerBI to create visualisations.
 - What does the Dashboard look like?
   Below is a link to access the dashboard
 
-  [PowerBI Dashboard]()
+  [PowerBI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOWM3YmE2NzktY2U1NC00MGZiLThhMGEtMGFjNDFkYTc3ZDBiIiwidCI6ImI1MWY0MTY0LTE1M2ItNDhlYi05MWMyLTZiYzVmYTgxNmI0NiJ9)
 
   
 
