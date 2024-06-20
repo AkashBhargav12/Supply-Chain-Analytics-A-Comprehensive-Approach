@@ -432,13 +432,22 @@ We can now export this cleaned data into PowerBI to create visualisations.
 
   ![Sales Performace](Assets/Images/Sales Perfromance.png)
 
-  ### MArketing Campaign
+  ### Marketing Campaign
 
   ![Marketing Campaign](Assets/Images/Marketing Campaign Response.png)
 
   ### Product Purchase
 
   ![Product Purchase](Assets/Images/Product purchase behaviour.png)
+
+  ## DAX Measures
+
+  ###
+
+
+  # Analysis
+
+
   
 
 
