@@ -410,6 +410,35 @@ We can now export this cleaned data into PowerBI to create visualisations.
 
   [PowerBI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOWM3YmE2NzktY2U1NC00MGZiLThhMGEtMGFjNDFkYTc3ZDBiIiwidCI6ImI1MWY0MTY0LTE1M2ItNDhlYi05MWMyLTZiYzVmYTgxNmI0NiJ9)
 
+  The dashboard has been created with 6 different pages and an additional navigation pane. Here are the visuals for each of the pages:
+
+  ### Navigation Pane
+
+  ![Navigation Pane](Assets/Images/Navigation Pane.png)
+
+  ### Overview
+
+  ![Overview](Assets/Images/Overview Page.png)
+
+  ### Customer Demographics
+
+  ![Customer Demographics](Assets/Images/Customer demographics.png)
+
+  ### Customer Engagement
+
+  ![Customer Engagement](Assets/Images/Customer Engagement.png)
+
+  ### Sales Performance
+
+  ![Sales Performace](Assets/Images/Sales Perfromance.png)
+
+  ### MArketing Campaign
+
+  ![Marketing Campaign](Assets/Images/Marketing Campaign Response.png)
+
+  ### Product Purchase
+
+  ![Product Purchase](Assets/Images/Product purchase behaviour.png)
   
 
 
