@@ -442,8 +442,42 @@ We can now export this cleaned data into PowerBI to create visualisations.
 
   ## DAX Measures
 
-  ###
+  - A few simple DAX measures have been used to ease the process of generating visualisations
 
+  ### Age
+  ```sql
+  Age = YEAR(TODAY())-[Year_Birth]
+  ```
+
+  ### Repeat Customers
+  ```sql
+  Repeat Customers = CALCULATE(DISTINCTCOUNT('Cleaned data from SQL'[ID]), 'Cleaned data from SQL'[NumStorePurchases] > 1 || 'Cleaned data from SQL'[NumWebPurchases] > 1 || 'Cleaned data from SQL'[NumCatalogPurchases] > 1)
+  ```
+
+  ### Customer Retention Rate
+  ```sql
+  Customer Retention Rate = DIVIDE([Repeat Customers],[Total Customers],0)
+  ```
+
+  ### Recency of Purchase
+  ```sql
+  Recency of Purchase = DATEDIFF(('Cleaned data from SQL'[Dt_Customer]),TODAY(),DAY)
+  ```
+
+  ### Total Purchases
+  ```sql
+  Total Purchases = SUM('Cleaned data from SQL'[NumCatalogPurchases]) + SUM('Cleaned data from SQL'[NumStorePurchases]) + SUM('Cleaned data from SQL'[NumWebPurchases]) + SUM('Cleaned data from SQL'[NumDealsPurchases])
+  ```
+
+  ### Total Responses
+  ```sql
+  Total Responses = CALCULATE(COUNT('Cleaned data from SQL'[Response]),'Cleaned data from SQL'[Response] = 1)
+  ```
+
+  ### Total Sales
+  ```sql
+  Total Sales = [MntFishProducts] + [MntFruits] + [MntGoldProds] + [MntMeatProducts] + [MntSweetProducts] + [MntWines]
+  ```
 
   # Analysis
 
