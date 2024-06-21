@@ -481,6 +481,8 @@ We can now export this cleaned data into PowerBI to create visualisations.
 
   # Analysis
 
+Now that we have cleaned and tested the data using SQL, we can take a deeper dive into the data with the help of Excel Solver add-in to gather insights and to strategise performance improvement opportunities.
+
 
   
 
