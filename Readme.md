@@ -479,11 +479,30 @@ We can now export this cleaned data into PowerBI to create visualisations.
   Total Sales = [MntFishProducts] + [MntFruits] + [MntGoldProds] + [MntMeatProducts] + [MntSweetProducts] + [MntWines]
   ```
 
-  # Analysis
+# Analysis
 
 Now that we have cleaned and tested the data using SQL, we can take a deeper dive into the data with the help of Excel Solver add-in to gather insights and to strategise performance improvement opportunities.
 
+## Probability
 
+What is the probability that for at most 10 out of 100 randomly selected customers to have complained within the last two years?
+- To calculate the probability, we make use of the below Excel Function,
+  ```sql
+  BINOM.DIST(10,100,Z6,TRUE)
+  ```
+The result from the Excel is shown below,
+
+![Probability]()
+
+The 1.092% probability suggests that the complaints are relatively rate. This indicates that the customer satisfaction is generally high. Further investigation into the reasons for the complaints can help improve customer satisfaction even more.
+
+Actions to be taken:
+- Continue monitoring customer feedback and complaints.
+- Implement proactive measures to maintain or improve customer satisfaction.
+
+
+
+  
   
 
 
