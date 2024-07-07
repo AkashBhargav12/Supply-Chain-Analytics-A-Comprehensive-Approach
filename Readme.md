@@ -492,7 +492,7 @@ What is the probability that for at most 10 out of 100 randomly selected custome
   ```
 The result from the Excel is shown below,
 
-![Probability]()
+![Probability](Assets/Images/Probability.png)
 
 The 1.092% probability suggests that the complaints are relatively rate. This indicates that the customer satisfaction is generally high. Further investigation into the reasons for the complaints can help improve customer satisfaction even more.
 
