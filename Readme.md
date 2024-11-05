@@ -408,7 +408,7 @@ We can now export this cleaned data into PowerBI to create visualisations.
 - What does the Dashboard look like?
   Below is a link to access the dashboard
 
-  [PowerBI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOWM3YmE2NzktY2U1NC00MGZiLThhMGEtMGFjNDFkYTc3ZDBiIiwidCI6ImI1MWY0MTY0LTE1M2ItNDhlYi05MWMyLTZiYzVmYTgxNmI0NiJ9)
+  [PowerBI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYTg2NDA1ZGEtZTIwYS00NGMyLTg4ODItMTEwNDNhODYzYzQ0IiwidCI6IjhkMWQzMjI3LWRhMjAtNGQ5ZS1iMGE1LTZiNWU4MzAzZDI4YyJ9)
 
   The dashboard has been created with 6 different pages and an additional navigation pane. Here are the visuals for each of the pages:
 
